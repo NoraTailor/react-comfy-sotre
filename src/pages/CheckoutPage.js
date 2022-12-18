@@ -11,6 +11,7 @@ const CheckoutPage = () => {
 			<PageHero title='checkout'></PageHero>
 			<Wrapper className='page'>
 				<h1>checkout here</h1>
+				<StripeCheckout />
 			</Wrapper>
 		</main>
 	);
