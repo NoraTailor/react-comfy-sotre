@@ -2,7 +2,7 @@ import { Auth0Provider } from '@auth0/auth0-react';
 import React from 'react';
 import {
 	BrowserRouter as Router,
-	Switch,
+	Routes,
 	Route,
 } from 'react-router-dom';
 import { Navbar, Sidebar, Footer } from './components';
@@ -24,29 +24,26 @@ function App() {
 			<Router>
 				<Navbar />
 				<Sidebar />
-				<Switch>
-					<Route path='/' exact>
-						<Home></Home>
-					</Route>
-					<Route path='/about' exact>
-						<About />{' '}
-					</Route>
-					<Route path='/cart' exact>
-						<Cart />{' '}
-					</Route>
-					<Route path='/products' exact>
-						<Products />
-					</Route>
-					<Route path='/products:id' exact>
-						<SingleProduct />
-					</Route>
-					<PrivateRoute path='/checkout' exact>
-						<Checkout />
-					</PrivateRoute>
-					<Route path='*'>
-						<Error />
-					</Route>
-				</Switch>
+				<Routes>
+					<Route path='/' element={<Home />} />
+
+					<Route path='about' element={<About />} />
+					<Route path='cart' element={<Cart />} />
+					<Route path='products' element={<Products />} />
+					<Route
+						path='products/:id'
+						element={<SingleProduct />}
+					/>
+					<Route
+						path='checkout'
+						element={
+							<PrivateRoute>
+								<Checkout />
+							</PrivateRoute>
+						}
+					/>
+					<Route path='*' element={<Error />} />
+				</Routes>
 				<Footer />
 			</Router>
 		</AuthWrapper>

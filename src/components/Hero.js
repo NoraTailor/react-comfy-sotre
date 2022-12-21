@@ -1,8 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
-import heroBcg from '../assets/hero-bcg.jpeg';
-import heroBcg2 from '../assets/hero-bcg-2.jpeg';
+import heroBcg from '../assets/hero-bcg.svg';
 
 const Hero = () => {
 	return (
@@ -25,11 +24,6 @@ const Hero = () => {
 					src={heroBcg}
 					alt='nice table'
 					className='main-img'
-				/>
-				<img
-					src={heroBcg2}
-					alt='person working'
-					className='accent-img'
 				/>
 			</article>
 		</Wrapper>
@@ -83,16 +77,6 @@ const Wrapper = styled.section`
 			left: 0;
 			width: 250px;
 			transform: translateX(-50%);
-			border-radius: var(--radius);
-		}
-		.img-container::before {
-			content: '';
-			position: absolute;
-			width: 10%;
-			height: 80%;
-			background: var(--clr-primary-9);
-			bottom: 0%;
-			left: -8%;
 			border-radius: var(--radius);
 		}
 	}

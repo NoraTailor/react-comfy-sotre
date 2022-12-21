@@ -8,6 +8,7 @@ import { FilterProvider } from './context/filter_context';
 import { CartProvider } from './context/cart_context';
 import { UserProvider } from './context/user_context';
 import { Auth0Provider } from '@auth0/auth0-react';
+import { GET_PRODUCTS_SUCCESS } from './actions';
 // dev-ozlc6nbslbzd5aug.us.auth0.com;
 // wzgnE6kHPXdeoyr10FWmizx8SDzsvlfT;
 const root = ReactDOM.createRoot(
@@ -15,10 +16,10 @@ const root = ReactDOM.createRoot(
 );
 root.render(
 	<Auth0Provider
-		domain='dev-ozlc6nbslbzd5aug.us.auth0.com'
-		clientId='wzgnE6kHPXdeoyr10FWmizx8SDzsvlfT'
+		domain={process.env.REACT_APP_AUTH_DOMAIN}
+		clientId={process.env.REACT_APP_CLIENT_ID}
 		redirectUri={window.location.origin}
-		//save in localstorage
+		//save in local storage
 		cacheLocation='localstorage'>
 		<UserProvider>
 			<ProductsProvider>
